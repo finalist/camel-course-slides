@@ -1,0 +1,9 @@
+Slidemateriaal voor de Camel cursus, die kan worden gegenereerd met [Landslide](https://github.com/adamzap/landslide).
+
+Installeer landslide en in doe vervolgens:
+
+	landslide config.cfg
+	
+Hiermee wordt het bestand <code>presentation.html</code> aangemaakt.
+
+	
