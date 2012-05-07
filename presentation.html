@@ -85,11 +85,17 @@
             
             
             <section><ul>
-<li><font color="#F90">Inleiding</font><blockquote>Het probleem (integratie), de aanpak (Enterprise Integration Patterns) en het framework (Camel)</blockquote>
+<li><font color="#F90">Inleiding</font><blockquote>
+<p>Het probleem (integratie), de aanpak (Enterprise Integration Patterns) en het framework (Camel)</p>
+</blockquote>
 </li>
-<li><font color="#F90">Hands-on</font> <blockquote>Test-gedreven routeren van informatie met de Java DSL, toepassen business logica met POJO's en error handling</blockquote>
+<li><font color="#F90">Hands-on</font> <blockquote>
+<p>Test-gedreven routeren van informatie met de Java DSL, toepassen business logica met POJO's en error handling</p>
+</blockquote>
 </li>
-<li><font color="#F90">Extra's</font><blockquote>Routeren met de Scala DSL, Akka</blockquote>
+<li><font color="#F90">Extra's</font><blockquote>
+<p>Routeren met de Scala DSL, Akka</p>
+</blockquote>
 </li>
 </ul></section>
             
@@ -184,7 +190,12 @@
             
             
             <section><ul>
-<li>Het probleem</li>
+<li>Portals (samenbrengen informatie stromen)</li>
+<li>Data replicatie</li>
+<li>Gedeelde functionaliteit</li>
+<li>SOA (service georiënteerde architectuur)</li>
+<li>Gedistribueerde bedrijfsprocessen</li>
+<li>Business 2 Business integratie</li>
 </ul></section>
             
           </div>
@@ -216,8 +227,9 @@
             
             
             <section><ul>
-<li>Wat? Waarom?</li>
-<li><a href="http://www.eaipatterns.com/">EAI Patterns Website</a></li>
+<li>Oplossingen voor veel voorkomende integratie vraagstukken</li>
+<li><a href="http://www.eaipatterns.com/">EAI Patterns Website</a> </li>
+<li><a href="http://www.enterpriseintegrationpatterns.com/toc.html">EAI Patterns</a></li>
 </ul>
 <p><img alt="Hohpe&amp;Woolf" src="resources/eipbook.jpeg" /></p></section>
             
@@ -250,9 +262,8 @@
             
             
             <section><ul>
-<li>Patterns</li>
-<li>Transports</li>
-<li>Components</li>
+<li>Patterns: <a href="http://camel.apache.org/enterprise-integration-patterns.html">EIP in Camel</a></li>
+<li>Components: <a href="http://camel.apache.org/components.html">Components in Camel</a></li>
 </ul></section>
             
           </div>
@@ -344,8 +355,17 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Routing</h1></header>
+            <header><h1>Routing - HTTP proxy voorbeeld</h1></header>
             
+            
+            <section><p>Een eenvoudige route voorbeeld (HTTP proxy):</p>
+<pre><code>&lt;route&gt;
+ &lt;from uri="jetty:http://0.0.0.0:8080/myapp?
+    matchOnUriPrefix=true"/&gt;
+ &lt;to uri="jetty:http://realserverhostname:8090/myapp?
+    bridgeEndpoint=true&amp;amp;throwExceptionOnFailure=false"/&gt;
+&lt;/route&gt;
+</code></pre></section>
             
           </div>
           <div class="presenter_notes">
@@ -726,7 +746,7 @@
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Routing</a></th>
+        <th><a href="#slide10">Routing - HTTP proxy voorbeeld</a></th>
         <td><a href="#slide10">10</a></td>
       </tr>
       

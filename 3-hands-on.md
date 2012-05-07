@@ -13,7 +13,16 @@ Topics:
 
 ---
 
-# Routing
+# Routing - HTTP proxy voorbeeld
+
+Een eenvoudige route voorbeeld (HTTP proxy):
+
+	<route>
+     <from uri="jetty:http://0.0.0.0:8080/myapp?
+     	matchOnUriPrefix=true"/>
+     <to uri="jetty:http://realserverhostname:8090/myapp?
+     	bridgeEndpoint=true&amp;throwExceptionOnFailure=false"/>
+    </route>
 
 ---
 
