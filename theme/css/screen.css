@@ -314,7 +314,7 @@ section, .slide header:only-child h1 {
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   margin-left: 30px;
   margin-right: 30px;
-  margin-top: 100px;
+  margin-top: 75px;
   display: block;
   overflow: hidden;
 }
@@ -350,6 +350,11 @@ a {
 pre {
   font-size: 20px;
   font-family: Monaco, Courier, monospace;
+}
+
+strong {
+	color: #F90;
+	font-weight: normal;
 }
 
 li {
@@ -464,8 +469,9 @@ aside {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
-  div.slide p.notes {
-    font-size: 90%;
+
+div.slide p.notes {
+    font-size: 100%;
 }
 
 /* Pygments default theme */
