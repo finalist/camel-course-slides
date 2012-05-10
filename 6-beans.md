@@ -1,48 +1,93 @@
-# **Camel** met Beans
+# **Camel** Beans
 
 --- 
 
-# Beans
+# Uitdaging
 
-Wat is het probleem (leaky abstraction)
-Camel oplossing: beans met Service Activator Pattern
+Inherente problemen met component models (zoals CORBA, EJB, JBI, SCA, OSGi):
+
+* Leaky abstractions
+* Programmeren met restricties
+* Beperkte testbaarheid
+* ...
+
+---
+
+# Camel met Beans
+
+Bean voorbeeld:
+
+	!java
+	public class HelloBean {
+	    public String hello(String name) {
+	        return "Hello " + name;
+		} 
+	}
+
+Bean declaratie in Spring applicationContext:
+
+	!xml
+	<bean id="helloBean" class="camelinaction.HelloBean"/>
+	
+Toepassen bean referentie in Camel route:
+
+	!java
+	public void configure() throws Exception {
+		from("direct:hello").beanRef("helloBean", "hello");
+	}
+
+---
+
+# Selecteren van beans
+
+De **Service Activator** medieert tussen de requester en de POJO service:
 
 ![service-activator-pattern](resources/service-activator-pattern.png)
 
----
+De service activator is de <code>BeanProcessor</code> in Camel
 
-# Beans: Selecting bean methods
-
-Figure 4.4, 4.5, 4.6
+De POJO service is onze <code>HelloBean</code> bean
 
 ---
 
-# Oefening: beans met Java
+# Selecteren van bean methods
 
-(ton)
-
----
-
-# Bean registries
-
-Table 4.1
+![selection1](resources/selection1.png)
 
 ---
 
-# Oefening: beans met SimpleRegistry
+# Selecteren van bean methods
 
-(ton)
-
----
-
-# Beans: Parameter binding
-
-Figure 4.7, 4.8
+![selection2](resources/selection2.png)
 
 ---
 
-# Oefening: beans met parameter binding
+# Selecteren van bean en methods
 
-@Body, @Header
+Oefening!
 
-(ton)
+---
+
+# Opzoeken van beans
+
+![beanprocessor](resources/beanprocessor.png)
+
+De bean wordt aan de hand van de <code>beanRef</code> opgezocht in Camel's bean registry
+
+---
+
+# Opzoeken van beans
+
+Oefening!
+
+---
+
+# Parameter binding
+
+![parameterbinding](resources/parameterbinding.png)
+
+---
+
+# Parameter binding
+
+Oefening!

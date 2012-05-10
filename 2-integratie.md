@@ -40,3 +40,9 @@ http://camel.apache.org/
 ![Camel](resources/apache-camel.png)
 
 .notes: Camel is géen ESB, hoogstens een lightweight ESB (wel monitoring en orchestratie, geen container of message bus)
+
+---
+
+# Apache Architectuur
+
+![architectuur](resources/architecture.png)

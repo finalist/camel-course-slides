@@ -4,13 +4,13 @@
 
 # Topics
 
-**Integratie**
+**Integration**
 
 **Rationale**
 
-**Concepten**
+**Routing**
 
-**Transformaties**
+**Mediation**
 
 **Beans**
 

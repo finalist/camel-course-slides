@@ -75,7 +75,7 @@ Scala
 	!java
 	from("file:data/inbox?recursive=true&include=*.txt")...
 
-**Automatic type converters**
+**(Automatic) type converters**
 
 .notes: 150+ converters, kunt ook je eigen converters toevoegen
 
@@ -85,13 +85,13 @@ Scala
 
 * Zie ook: [camel-core in Maven repository](http://mvnrepository.com/artifact/org.apache.camel/camel-core/2.9.2)
 
----
-
-# Waarom Camel?
-
 **Test kit**
 
 .notes: bevat support classes, endpoint mocks, expectations, interceptors e.d.
+
+---
+
+# Waarom Camel?
 
 **Vibrant community**
 
@@ -109,7 +109,7 @@ Scala
 
 # Camel voorbeeld
 
-Voorbeelden uit [Camel in Action source](http://code.google.com/p/camelinaction/):
+Eerste voorbeeld uit de [Camel in Action source code](http://code.google.com/p/camelinaction/):
 
 chapter1/file-copy
 
