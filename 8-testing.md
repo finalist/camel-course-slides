@@ -22,8 +22,31 @@ JUnit 4.x classes:
 
 # Camel JUnit Extensions
 
-Insert Listing 6.1
-
+	!java
+	...
+	import org.apache.camel.test.junit4.CamelTestSupport;
+	...
+	
+	public class FirstTest extends CamelTestSupport {
+		@Override
+		protected RouteBuilder createRouteBuilder() throws Exception {
+			return new RouteBuilder() {
+				@Override
+				public void configure() throws Exception {
+					from("file://target/inbox")
+						.to("file://target/outbox");
+			};
+		}
+		@Test
+		public void testMoveFile() throws Exception {
+			template.sendBodyAndHeader("file://target/inbox", 
+				"Hello World", Exchange.FILE_NAME, "hello.txt");
+			Thread.sleep(1000);
+			File target = new File("target/outbox/hello.txt");
+			assertTrue("File not moved", target.exists());
+		}
+	}
+	
 ---
 
 # Using the Mock component
@@ -55,7 +78,29 @@ Voorbeeld:
 
 # MockEndpoint voorbeeld
 
-Listing 6.6
+	!java
+	package camelinaction;
+	import org.apache.camel.builder.RouteBuilder;
+	import org.apache.camel.component.mock.MockEndpoint;
+	import org.apache.camel.test.junit4.CamelTestSupport;
+
+	public class FirstMockTest extends CamelTestSupport {
+		@Override
+		protected RouteBuilder createRouteBuilder() throws Exception {
+	        return new RouteBuilder() {
+	            @Override
+	            public void configure() throws Exception {
+	                from("jms:topic:quote").to("mock:quote");
+			}};
+		}
+		@Test
+	    public void testQuote() throws Exception {
+	        MockEndpoint quote = getMockEndpoint("mock:quote");
+	        quote.expectedMessageCount(1);
+	        template.sendBody("jms:topic:quote", "Camel rocks");
+	        quote.assertIsSatisfied();
+		}
+	}
 
 ---
 
